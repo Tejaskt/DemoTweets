@@ -1,0 +1,30 @@
+*.iml
+*.idea/
+.idea
+.kotlin
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/app/build
+/app/build.gradle
+/app/proguard-rules.pro
+gradle
+build.gradle
+gradle.properties
+gradlew
+gradlew.bat
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+settings.gradle
+External Libraries
+Scratches and Consoles
+
+# Project exclude paths
+/.gradle/
