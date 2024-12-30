@@ -26,6 +26,7 @@ fun NoInternetDialog() {
         confirmButton = {
             TextButton(onClick = { }) {
                 Text("OK")
+
             }
         },
         icon = {
