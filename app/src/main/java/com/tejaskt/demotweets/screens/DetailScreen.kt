@@ -22,7 +22,7 @@ fun DetailScreen() {
     val tweets =  detailViewModel.tweets.collectAsState()
     LazyColumn(content = {
         items(tweets.value){
-            TweetListItem(tweet = it.text)
+            TweetListItem(tweet = it.text.toString())
         }
     })
 }
