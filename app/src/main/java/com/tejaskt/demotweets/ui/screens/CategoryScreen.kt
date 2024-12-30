@@ -1,4 +1,4 @@
-package com.tejaskt.demotweets.screens
+package com.tejaskt.demotweets.ui.screens
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,22 +25,35 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.tejaskt.demotweets.viewmodels.CategoryViewModel
+import com.tejaskt.demotweets.ui.view.viewmodels.CategoryViewModel
 import com.tejaskt.demotweets.R
+import com.tejaskt.demotweets.ui.component.NoInternetDialog
+import com.tejaskt.demotweets.ui.view.viewmodels.MainViewModel
 
 
 @Composable
 fun CategoryScreen(onClick: (category: String) -> Unit) {
 
     val categoryViewModel: CategoryViewModel = hiltViewModel()
-    val categories: State<List<String>> = categoryViewModel.categories.collectAsState()
+    var categories: State<List<String>> = categoryViewModel.categories.collectAsState()
+
+    val mainViewModel: MainViewModel = hiltViewModel()
+    val isConnected = mainViewModel.isConnected.collectAsState()
+
+    if (!isConnected.value) {
+        NoInternetDialog()
+
+    }
+    if (isConnected.value){
+        categoryViewModel.retryFetchingCategories()
+    }
 
     if (categories.value.isEmpty()) {
         Box(
             modifier = Modifier.fillMaxSize(1f),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Loading...", style = MaterialTheme.typography.bodyLarge)
+            Text(text = "Loading...", style = MaterialTheme.typography.displayLarge)
         }
     } else {
         LazyVerticalGrid(

@@ -19,8 +19,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.tejaskt.demotweets.screens.CategoryScreen
-import com.tejaskt.demotweets.screens.DetailScreen
+import com.tejaskt.demotweets.ui.screens.CategoryScreen
+import com.tejaskt.demotweets.ui.screens.DetailScreen
 import com.tejaskt.demotweets.ui.theme.DemoTweetsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
